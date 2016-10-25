@@ -4,7 +4,7 @@ var router = express.Router();
 var request = require('request');
 
 /* GET home page. */
-router.get('/daily', function(req, res, next) {
+router.post('/daily', function(req, res, next) {
   var reqData = req.body;
 
   var reqOptions = {
@@ -21,7 +21,7 @@ router.get('/daily', function(req, res, next) {
 
 });
 
-router.get('/timely', function(req, res, next) {
+router.post('/timely', function(req, res, next) {
   var reqData = req.body;
 
   var reqOptions = {
@@ -38,7 +38,7 @@ router.get('/timely', function(req, res, next) {
 
 });
 
-router.get('/', function(req, res, next) {
+router.post('/', function(req, res, next) {
   request.post(req).pipe(res);
 
 });
