@@ -33,6 +33,7 @@ router.post('/timely', function(req, res, next) {
       url: 'http://104.155.210.101:8081/timely',
       body: reqData,
       timeout: 120000,
+      json:true,
       headers: {
         "Content-Type": "application/json",
         "Accept": "application/json",
