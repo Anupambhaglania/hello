@@ -6,7 +6,8 @@ var request = require('request');
 /* GET home page. */
 router.post('/daily', function(req, res, next) {
   var reqData = req.body;
-
+    
+    console.log(reqData);
   var reqOptions = {
       url: 'http://104.155.210.101:8081/daily',
       body: reqData,
