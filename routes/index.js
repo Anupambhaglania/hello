@@ -17,8 +17,12 @@ router.post('/daily', function(req, res, next) {
         "Connection" : "keep-alive"
       }
   };
-
-  request.post(reqOptions).pipe(res);
+    try{
+        request.post(reqOptions).pipe(res);
+    }catch(e){
+        console.log(e);
+    }
+  
 });
 
 router.post('/timely', function(req, res, next) {
@@ -36,7 +40,11 @@ router.post('/timely', function(req, res, next) {
       }
   };
 
-  request.post(reqOptions).pipe(res);
+    try{
+        request.post(reqOptions).pipe(res);
+    }catch(e){
+        console.log(e);
+    }
 
 });
 
