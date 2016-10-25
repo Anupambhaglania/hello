@@ -10,10 +10,8 @@ router.get('/daily', function(req, res, next) {
   var reqOptions = {
       url: 'http://104.155.210.101:8081/daily',
       body: reqData,
-      json: true,
       timeout: 120000,
       headers: {
-        "Content-Type": "application/json",
         "Accept": "application/json",
         "Connection" : "keep-alive"
       }
@@ -29,10 +27,8 @@ router.get('/timely', function(req, res, next) {
   var reqOptions = {
       url: 'http://104.155.210.101:8081/timely',
       body: reqData,
-      json: true,
       timeout: 120000,
       headers: {
-        "Content-Type": "application/json",
         "Accept": "application/json",
         "Connection" : "keep-alive"
       }
