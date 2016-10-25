@@ -3,33 +3,34 @@ var router = express.Router();
 
 var request = require('request');
 
-/* GET home page. */
 router.post('/daily', function(req, res, next) {
   var reqData = req.body;
-    
-    console.log(reqData);
+  console.log(reqData);
   var reqOptions = {
       url: 'http://104.155.210.101:8081/daily',
       body: reqData,
       timeout: 120000,
+      json:true,
       headers: {
+        "Content-Type": "application/json",
         "Accept": "application/json",
         "Connection" : "keep-alive"
       }
   };
 
   request.post(reqOptions).pipe(res);
-
 });
 
 router.post('/timely', function(req, res, next) {
   var reqData = req.body;
+  console.log(reqData);
 
   var reqOptions = {
       url: 'http://104.155.210.101:8081/timely',
       body: reqData,
       timeout: 120000,
       headers: {
+        "Content-Type": "application/json",
         "Accept": "application/json",
         "Connection" : "keep-alive"
       }
@@ -39,9 +40,11 @@ router.post('/timely', function(req, res, next) {
 
 });
 
-router.post('/', function(req, res, next) {
-  request.post(req).pipe(res);
-
+router.get('/map', function(req, res, next) {
+  var reqOptions = {
+      url: 'http://104.155.210.101:8081/images/map.png',
+  };
+  request.get(reqOptions).pipe(res);
 });
 
 
