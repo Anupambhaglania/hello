@@ -73,7 +73,29 @@ router.post('/user', function(req, res, next) {
 
 });
 
+router.post('/snapshot', function(req, res, next) {
+  var reqData = req.body;
+  console.log(reqData);
 
+  var reqOptions = {
+      url: 'http://104.155.210.101:8081/snapshot',
+      body: reqData,
+      timeout: 120000,
+      json:true,
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "Connection" : "keep-alive"
+      }
+  };
+
+    try{
+        request.post(reqOptions).pipe(res);
+    }catch(e){
+        console.log(e);
+    }
+
+});
 router.get('/map', function(req, res, next) {
   var reqOptions = {
       url: 'http://104.155.210.101:8081/images/map.png',
